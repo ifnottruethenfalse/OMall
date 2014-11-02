@@ -76,6 +76,15 @@ module.exports.routes = {
   },
   '/contact': {
     view: 'contact'
+  },
+  '/product': {
+    view: 'product'
+  },
+  '/order': {
+    view: 'order'
+  },
+  '/productEdit': {
+    view: 'productEdit'
   }
 
   /***************************************************************************
