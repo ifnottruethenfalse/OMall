@@ -72,7 +72,7 @@ var Calendar = function () {
             }
 
             var addEvent = function (title) {
-                title = title.length == 0 ? "Untitled Event" : title;
+                title = title.length == 0 ? "Evento" : title;
                 var html = $('<div class="external-event label label-default">' + title + '</div>');
                 jQuery('#event_box').append(html);
                 initDrag(html);
@@ -89,12 +89,12 @@ var Calendar = function () {
 
             //predefined events
             $('#event_box').html("");
-            addEvent("My Event 1");
-            addEvent("My Event 2");
-            addEvent("My Event 3");
-            addEvent("My Event 4");
-            addEvent("My Event 5");
-            addEvent("My Event 6");
+            addEvent("Mi Evento 1");
+            addEvent("Mi Evento 2");
+            addEvent("Mi Evento 3");
+            addEvent("Mi Evento 4");
+            addEvent("Mi Evento 5");
+            addEvent("Mi Evento 6");
 
             $('#calendar').fullCalendar('destroy'); // destroy the calendar
             $('#calendar').fullCalendar({ //re-initialize the calendar
@@ -125,42 +125,42 @@ var Calendar = function () {
                     }
                 },
                 events: [{
-                        title: 'All Day Event',                        
+                        title: 'Evento todo el dia',                        
                         start: new Date(y, m, 1),
                         backgroundColor: Metronic.getBrandColor('yellow')
                     }, {
-                        title: 'Long Event',
+                        title: 'Evento Largo',
                         start: new Date(y, m, d - 5),
                         end: new Date(y, m, d - 2),
                         backgroundColor: Metronic.getBrandColor('green')
                     }, {
-                        title: 'Repeating Event',
+                        title: 'Evento Repetitivo',
                         start: new Date(y, m, d - 3, 16, 0),
                         allDay: false,
                         backgroundColor: Metronic.getBrandColor('red')
                     }, {
-                        title: 'Repeating Event',
+                        title: 'Evento Repetitivo',
                         start: new Date(y, m, d + 4, 16, 0),
                         allDay: false,
                         backgroundColor: Metronic.getBrandColor('green')
                     }, {
-                        title: 'Meeting',
+                        title: 'Reunion',
                         start: new Date(y, m, d, 10, 30),
                         allDay: false,
                     }, {
-                        title: 'Lunch',
+                        title: 'Almuerzo',
                         start: new Date(y, m, d, 12, 0),
                         end: new Date(y, m, d, 14, 0),
                         backgroundColor: Metronic.getBrandColor('grey'),
                         allDay: false,
                     }, {
-                        title: 'Birthday Party',
+                        title: 'Cumpleaños',
                         start: new Date(y, m, d + 1, 19, 0),
                         end: new Date(y, m, d + 1, 22, 30),
                         backgroundColor: Metronic.getBrandColor('purple'),
                         allDay: false,
                     }, {
-                        title: 'Click for Google',
+                        title: 'Google',
                         start: new Date(y, m, 28),
                         end: new Date(y, m, 29),
                         backgroundColor: Metronic.getBrandColor('yellow'),

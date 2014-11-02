@@ -1,0 +1,286 @@
+<!-- Page level plugin styles START -->
+<link href="/global/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet">
+<link href="/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.css" rel="stylesheet">
+<link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css"><!-- for slider-range -->
+<link href="/global/plugins/rateit/src/rateit.css" rel="stylesheet" type="text/css">
+
+  <link href="/admin/layout/css/style.css" rel="stylesheet">
+  <link href="/admin/pages/css/style-shop.css" rel="stylesheet" type="text/css">
+  <link href="/admin/layout/css/style-responsive.css" rel="stylesheet"> 
+<!-- Page level plugin styles END -->    
+    <div class="title-wrapper">
+      <div class="container"><div class="container-inner">
+        <h1><span>Ultimos</span> Productos</h1>
+        <em>Mas de 4000 Articulos hay aqui!</em>
+      </div></div>
+    </div>
+
+    <div class="main">
+      <div class="container" style="width:100%;">
+        <!-- BEGIN SIDEBAR & CONTENT -->
+        <div class="row margin-bottom-40">
+          <!-- BEGIN SIDEBAR -->
+          <div class="sidebar col-md-3 col-sm-5">
+            <ul class="list-group margin-bottom-25 sidebar-menu">
+              <li class="list-group-item clearfix  active"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Ultimos Productos</a></li>
+              <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Libros</a></li>
+              <li class="list-group-item clearfix dropdown">
+                <a href="javascript:void(0);" class="collapsed">
+                  <i class="fa fa-angle-right"></i>
+                  Peliculas, Musica y Juegos
+                  <i class="fa fa-angle-down"></i>
+                </a>
+                <ul class="dropdown-menu" style="display:block;">
+                  <li><a href="#"><i class="fa fa-angle-right"></i> Blu-ray </a></li>
+                  <li><a href="#"><i class="fa fa-angle-right"></i> Video Games </a></li>
+                </ul>
+              </li>
+              <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Electronicos y Computadoras</a></li>
+              <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Hogar, Jardin y Herramientas</a></li>
+              <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Belleza y Salud </a></li>
+              <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Juguetes, Niños y Bebes</a></li>
+              <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Vestimenta, Zapatos y Joyeria</a></li>
+              <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Deportes</a></li>
+              <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Vehiculos e Industrial</a></li>
+            </ul>
+
+            <div class="sidebar-filter margin-bottom-25">
+              <h2>Filtro</h2>
+              <h3>Disponibilidad</h3>
+              <div class="checkbox-list">
+                <label><input type="checkbox"> No Disponibles (3)</label>
+                <label><input type="checkbox"> En Existencia (26)</label>
+              </div>
+
+              <h3>Precio</h3>
+              <p>
+                <label for="amount">Rango:</label>
+                <input type="text" id="amount" style="border:0; color:#f6931f; font-weight:bold;">
+              </p>
+              <div id="slider-range"></div>
+            </div>
+
+            <div class="sidebar-products clearfix">
+              <h2>Mas Vistos</h2>
+              <div class="item">
+                <a href="shop-item.html"><img src="/admin/pages/img/products/k1.jpg" alt="Some Shoes in Animal with Cut Out"></a>
+                <h3><a href="shop-item.html">IPhone 7</a></h3>
+                <div class="price">Q10000.00</div>
+              </div>
+              <div class="item">
+                <a href="shop-item.html"><img src="/admin/pages/img/products/k4.jpg" alt="Some Shoes in Animal with Cut Out"></a>
+                <h3><a href="shop-item.html">Bazuca</a></h3>
+                <div class="price">Q10.00</div>
+              </div>
+              <div class="item">
+                <a href="shop-item.html"><img src="/admin/pages/img/products/k3.jpg" alt="Some Shoes in Animal with Cut Out"></a>
+                <h3><a href="shop-item.html">Takis</a></h3>
+                <div class="price">Q4.00</div>
+              </div>
+            </div>
+          </div>
+          <!-- END SIDEBAR -->
+          <!-- BEGIN CONTENT -->
+          <div class="col-md-9 col-sm-7">
+            <div class="row list-view-sorting clearfix">
+              <div class="col-md-2 col-sm-2 list-view">
+                <a href="#"><i class="fa fa-th-large"></i></a>
+                <a href="#"><i class="fa fa-th-list"></i></a>
+              </div>
+              <div class="col-md-10 col-sm-10">
+                <div class="pull-right">
+                  <label class="control-label">Ver:</label>
+                  <select class="form-control input-sm">
+                    <option value="#?limit=24" selected="selected">24</option>
+                    <option value="#?limit=25">25</option>
+                    <option value="#?limit=50">50</option>
+                    <option value="#?limit=75">75</option>
+                    <option value="#?limit=100">100</option>
+                  </select>
+                </div>
+                <div class="pull-right">
+                  <label class="control-label">Ordenar&nbsp;Por:</label>
+                  <select class="form-control input-sm">
+                    <option value="#?sort=p.sort_order&amp;order=ASC" selected="selected">Predeterminado</option>
+                    <option value="#?sort=pd.name&amp;order=ASC">Nombre (A - Z)</option>
+                    <option value="#?sort=pd.name&amp;order=DESC">Nombre (Z - A)</option>
+                    <option value="#?sort=p.price&amp;order=ASC">Precio (Bajo &gt; Alto)</option>
+                    <option value="#?sort=p.price&amp;order=DESC">Precio (Alto &gt; Bajo)</option>
+                    <option value="#?sort=rating&amp;order=DESC">Popularidad (Alta)</option>
+                    <option value="#?sort=rating&amp;order=ASC">Popularidad (Baja)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <!-- BEGIN PRODUCT LIST -->
+            <div class="row product-list">
+              <!-- PRODUCT ITEM START -->
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="product-item">
+                  <div class="pi-img-wrapper">
+                    <img src="/admin/pages/img/products/model1.jpg" class="img-responsive" alt="OMall">
+                    <div>
+                      <a href="/admin/pages/img/products/model1.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">Ver</a>
+                    </div>
+                  </div>
+                  <h3><a href="shop-item.html">Tenis Adidas</a></h3>
+                  <div class="pi-price">Q400.00</div>
+                  <a href="#" class="btn btn-default add2cart">Ordenar</a>
+                </div>
+              </div>
+              <!-- PRODUCT ITEM END -->
+              <!-- PRODUCT ITEM START -->
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="product-item">
+                  <div class="pi-img-wrapper">
+                    <img src="/admin/pages/img/products/model2.jpg" class="img-responsive" alt="OMall">
+                    <div>
+                      <a href="/admin/pages/img/products/model2.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">Ver</a>
+                    </div>
+                  </div>
+                  <h3><a href="shop-item.html">Mazda 3</a></h3>
+                  <div class="pi-price">Q100000.00</div>
+                  <a href="#" class="btn btn-default add2cart">Ordenar</a>
+                </div>
+              </div>
+              <!-- PRODUCT ITEM END -->
+              <!-- PRODUCT ITEM START -->
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="product-item">
+                  <div class="pi-img-wrapper">
+                    <img src="/admin/pages/img/products/model6.jpg" class="img-responsive" alt="OMall">
+                    <div>
+                      <a href="/admin/pages/img/products/model6.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                      <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">Ver</a>
+                    </div>
+                  </div>
+                  <h3><a href="shop-item.html">Play Station 5</a></h3>
+                  <div class="pi-price">Q6000.00</div>
+                  <a href="#" class="btn btn-default add2cart">Ordenar</a>
+                </div>
+              </div>
+              <!-- PRODUCT ITEM END -->
+              <!-- PRODUCT ITEM START -->
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="product-item">
+                  <div class="pi-img-wrapper">
+                    <img src="/admin/pages/img/products/model4.jpg" class="img-responsive" alt="OMall">
+                    <div>
+                        <a href="/admin/pages/img/products/model4.jpg" class="btn btn-default fancybox-button">Zoom</a>
+                        <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">Ver</a>
+                    </div>
+                  </div>
+                  <h3><a href="shop-item.html">Twilight Saga</a></h3>
+                  <div class="pi-price">Q1000.00</div>
+                  <a href="#" class="btn btn-default add2cart">Ordenar</a>
+                </div>
+              </div>
+              <!-- PRODUCT ITEM END -->
+            </div>
+            <!-- END PRODUCT LIST -->
+            <!-- BEGIN PAGINATOR -->
+            <div class="row">
+              <div class="col-md-4 col-sm-4 items-info">Articulos 1 a 9 de 10 totales</div>
+              <div class="col-md-8 col-sm-8">
+                <ul class="pagination pull-right">
+                  <li><a href="#">&laquo;</a></li>
+                  <li><a href="#">1</a></li>
+                  <li><span>2</span></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                  <li><a href="#">&raquo;</a></li>
+                </ul>
+              </div>
+            </div>
+            <!-- END PAGINATOR -->
+          </div>
+          <!-- END CONTENT -->
+        </div>
+        <!-- END SIDEBAR & CONTENT -->
+      </div>
+    </div>
+    <!-- BEGIN fast view of a product -->
+    <div id="product-pop-up" style="display: none; width: 700px;">
+            <div class="product-page product-pop-up">
+              <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-3">
+                  <div class="product-main-image">
+                    <img src="/admin/pages/img/products/model7.jpg" alt="Twilight" class="img-responsive">
+                  </div>
+                  <div class="product-other-images">
+                    <a href="#" class="active"><img alt="OMall" src="/admin/pages/img/products/model3.jpg"></a>
+                    <a href="#"><img alt="OMall" src="/admin/pages/img/products/model4.jpg"></a>
+                    <a href="#"><img alt="OMall" src="/admin/pages/img/products/model5.jpg"></a>
+                  </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-9">
+                  <h1>Twilight Saga</h1>
+                  <div class="price-availability-block clearfix">
+                    <div class="price">
+                      <strong><span>Q</span>1000.00</strong>
+                    </div>
+                    <div class="availability">
+                      Disponibilidad: <strong>En Existencia</strong>
+                    </div>
+                  </div>
+                  <div class="description">
+                    <p>Twilight, New Moon, Breaking Down, Eclipse Books.</p>
+                  </div>
+                  <div class="product-page-cart">
+                    <div class="product-quantity">
+                        <input id="product-quantity" type="text" value="1" readonly name="product-quantity" class="form-control input-sm">
+                    </div>
+                    <button class="btn btn-primary" type="submit">Ordenar</button>
+                    <a href="shop-item.html" class="btn btn-default">Mas Detalles</a>
+                  </div>
+                </div>
+
+                <div class="sticker sticker-sale"></div>
+              </div>
+            </div>
+    </div>
+    <!-- END fast view of a product -->
+<!-- Load javascripts at bottom, this will reduce page load time -->
+    <!-- BEGIN CORE PLUGINS(REQUIRED FOR ALL PAGES) -->
+    <!--[if lt IE 9]>
+    <script src="assets/plugins/respond.min.js"></script>  
+    <![endif]-->  
+    <script src="/global/plugins/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="/global/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+    <script src="/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>      
+    <script src="/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+    <!-- END CORE PLUGINS -->
+
+    <!-- BEGIN PAGE LEVEL JAVASCRIPTS (REQUIRED ONLY FOR CURRENT PAGE) -->
+    <script src="/global/plugins/fancybox/source/jquery.fancybox.pack.js" type="text/javascript"></script><!-- pop up -->
+    <script src="/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.min.js" type="text/javascript"></script><!-- slider for products -->
+    <script src='/global/plugins/zoom/jquery.zoom.min.js' type="text/javascript"></script><!-- product zoom -->
+    <script src="/global/plugins/bootstrap-touchspin/bootstrap.touchspin.js" type="text/javascript"></script><!-- Quantity -->
+    <script src="/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+    <script src="/global/plugins/rateit/src/jquery.rateit.js" type="text/javascript"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js" type="text/javascript"></script><!-- for slider-range -->
+
+    <script src="/global/scripts/metronic.js" type="text/javascript"></script>
+    <script src="/admin/layout/scripts/layout2.js" type="text/javascript"></script>
+    <script src="/admin/layout/scripts/layout.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            Layout2.init();    
+            Layout2.initOWL();
+            Layout2.initTwitter();
+            Layout2.initImageZoom();
+            Layout2.initTouchspin();
+            Layout2.initUniform();
+            Layout2.initSliderRange();
+            Metronic.init(); // init metronic core components
+             Layout.init(); // init current layout
+        });
+    </script>
+    <!-- END PAGE LEVEL JAVASCRIPTS -->
+   

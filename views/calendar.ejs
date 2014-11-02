@@ -1,0 +1,75 @@
+<!-- BEGIN PAGE LEVEL STYLES -->
+<link href="/global/plugins/fullcalendar/fullcalendar/fullcalendar.css" rel="stylesheet"/>
+<!-- END PAGE LEVEL STYLES -->
+			<!-- BEGIN PAGE CONTENT-->
+			<div class="row">
+				<div class="col-md-12">
+					<div class="portlet box green-meadow calendar">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="fa fa-calendar"></i>Calendario
+							</div>
+						</div>
+						<div class="portlet-body">
+							<div class="row">
+								<div class="col-md-3 col-sm-12">
+									<!-- BEGIN DRAGGABLE EVENTS PORTLET-->
+									<h3 class="event-form-title">Eventos</h3>
+									<div id="external-events">
+										<form class="inline-form">
+											<input type="text" value="" class="form-control" placeholder="Evento..." id="event_title"/><br/>
+											<a href="javascript:;" id="event_add" class="btn default">
+											Agregar Evento </a>
+										</form>
+										<hr/>
+										<div id="event_box">
+										</div>
+										<hr class="visible-xs"/>
+									</div>
+									<!-- END DRAGGABLE EVENTS PORTLET-->
+								</div>
+								<div class="col-md-9 col-sm-12">
+									<div id="calendar" class="has-toolbar">
+									</div>
+								</div>
+							</div>
+							<!-- END CALENDAR PORTLET-->
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- END PAGE CONTENT-->
+<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+<!-- BEGIN CORE PLUGINS -->
+<!--[if lt IE 9]>
+<script src="/global/plugins/respond.min.js"></script>
+<script src="/global/plugins/excanvas.min.js"></script> 
+<![endif]-->
+<script src="/global/plugins/jquery-1.11.0.min.js" type="text/javascript"></script>
+<script src="/global/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+<!-- IMPORTANT! Load jquery-ui-1.10.3.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+<script src="/global/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+<script src="/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+<script src="/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script src="/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+<!-- END CORE PLUGINS -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<!-- IMPORTANT! fullcalendar depends on jquery-ui-1.10.3.custom.min.js for drag & drop support -->
+<script src="/global/plugins/fullcalendar/fullcalendar/fullcalendar.min.js"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="/global/scripts/metronic.js" type="text/javascript"></script>
+<script src="/admin/layout/scripts/layout.js" type="text/javascript"></script>
+<script src="/admin/pages/scripts/calendar.js"></script>
+<script>
+jQuery(document).ready(function() {       
+   // initiate layout and plugins
+   Metronic.init(); // init metronic core components
+Layout.init(); // init current layout
+   Calendar.init();
+});
+</script>
+<!-- END PAGE LEVEL SCRIPTS -->

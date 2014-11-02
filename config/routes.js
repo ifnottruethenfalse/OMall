@@ -37,6 +37,45 @@ module.exports.routes = {
   },
   '/login': {
     view: 'login/login'
+  },
+  '/profile': {
+    view: 'profile'
+  },
+  '/products': {
+    view: 'products'
+  },
+  '/dashboard': {
+    view: 'dashboard'
+  },
+  '/orders': {
+    view: 'orders'
+  },
+  '/myproducts': {
+    view: 'myProducts'
+  },
+  '/wishlist': {
+    view: 'wishlist'
+  },
+  '/inbox': {
+    view: 'inbox'
+  },
+  '/friends': {
+    view: 'friends'
+  },
+  '/calendar': {
+    view: 'calendar'
+  },
+  '/portfolio': {
+    view: 'portfolio'
+  },
+  '/upgrade': {
+    view: 'upgrade'
+  },
+  '/aboutus': {
+    view: 'aboutus'
+  },
+  '/contact': {
+    view: 'contact'
   }
 
   /***************************************************************************

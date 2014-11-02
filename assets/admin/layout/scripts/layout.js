@@ -3,7 +3,7 @@ Core script to handle the entire theme and core functions
 **/
 var Layout = function () {
 
-    var layoutImgPath = '../../assets/admin/layout/img/';
+    var layoutImgPath = '/admin/layout/img/';
 
     //* BEGIN:CORE HANDLERS *//
     // this function handles responsive layout on screen size resize or mobile device rotate.
@@ -571,11 +571,11 @@ var Layout = function () {
         // handle theme colors
         var setColor = function (color) {
             var color_ = (Metronic.isRTL() ? color + '-rtl' : color);
-            $('#style_color').attr("href", "../../assets/admin/layout/css/themes/" + color_ + ".css");
+            $('#style_color').attr("href", "/admin/layout/css/themes/" + color_ + ".css");
             if (color == 'light2') {
-                $('.page-logo img').attr('src', '../../assets/admin/layout/img/logo-invert.png');
+                $('.page-logo img').attr('src', '/admin/layout/img/logo-invert.png');
             } else {
-                $('.page-logo img').attr('src', '../../assets/admin/layout/img/logo.png');
+                $('.page-logo img').attr('src', '/admin/layout/img/logo.png');
             }
             if ($.cookie) {                
                 $.cookie('style_color', color);

@@ -1,6 +1,9 @@
 var Inbox = function () {
 
-    var content = $('.inbox-content');
+    var content = $('#inbox-content');
+    var contentView = $('#inbox-contentView');
+    var contentReply = $('#inbox-contentReply');
+    var contentCompose = $('#inbox-contentCompose');
     var loading = $('.inbox-loading');
     var listListing = '';
 
@@ -10,34 +13,20 @@ var Inbox = function () {
         listListing = name;
 
         loading.show();
-        content.html('');
         toggleButton(el);
-
-        $.ajax({
-            type: "GET",
-            cache: false,
-            url: url,
-            dataType: "html",
-            success: function(res) 
-            {
-                toggleButton(el);
+        toggleButton(el);
 
                 $('.inbox-nav > li.active').removeClass('active');
                 $('.inbox-nav > li.' + name).addClass('active');
                 $('.inbox-header > h1').text(title);
 
                 loading.hide();
-                content.html(res);
+                content.show();
+                contentView.hide();
+                contentReply.hide();
+                contentCompose.hide();
                 Layout.fixContentHeight();
                 Metronic.initUniform();
-            },
-            error: function(xhr, ajaxOptions, thrownError)
-            {
-                toggleButton(el);
-            },
-            async: false
-        });
-
         // handle group checkbox:
         jQuery('body').on('change', '.mail-group-checkbox', function () {
             var set = jQuery('.mail-checkbox');
@@ -53,42 +42,29 @@ var Inbox = function () {
         var url = 'inbox_view.html';
 
         loading.show();
-        content.html('');
         toggleButton(el);
 
         var message_id = el.parent('tr').attr("data-messageid");  
         
-        $.ajax({
-            type: "GET",
-            cache: false,
-            url: url,
-            dataType: "html",
-            data: {'message_id': message_id},
-            success: function(res) 
-            {
-                toggleButton(el);
+        toggleButton(el);
 
-                if (resetMenu) {
-                    $('.inbox-nav > li.active').removeClass('active');
-                }
-                $('.inbox-header > h1').text('View Message');
+        if (resetMenu) {
+            $('.inbox-nav > li.active').removeClass('active');
+        }
+        $('.inbox-header > h1').text('Ver Mensaje');
 
-                loading.hide();
-                content.html(res);
-                Layout.fixContentHeight();
-                Metronic.initUniform();
-            },
-            error: function(xhr, ajaxOptions, thrownError)
-            {
-                toggleButton(el);
-            },
-            async: false
-        });
+        loading.hide();
+        content.hide();
+        contentView.show();
+        contentReply.hide();
+        contentCompose.hide();
+        Layout.fixContentHeight();
+        Metronic.initUniform();
     }
 
     var initWysihtml5 = function () {
         $('.inbox-wysihtml5').wysihtml5({
-            "stylesheets": ["../../assets/global/plugins/bootstrap-wysihtml5/wysiwyg-color.css"]
+            "stylesheets": ["/global/plugins/bootstrap-wysihtml5/wysiwyg-color.css"]
         });
     }
 
@@ -97,14 +73,14 @@ var Inbox = function () {
         $('#fileupload').fileupload({
             // Uncomment the following to send cross-domain cookies:
             //xhrFields: {withCredentials: true},
-            url: '../../assets/global/plugins/jquery-file-upload/server/php/',
+            url: '/global/plugins/jquery-file-upload/server/php/',
             autoUpload: true
         });
 
         // Upload server status check for browsers with CORS support:
         if ($.support.cors) {
             $.ajax({
-                url: '../../assets/global/plugins/jquery-file-upload/server/php/',
+                url: '/global/plugins/jquery-file-upload/server/php/',
                 type: 'HEAD'
             }).fail(function () {
                 $('<span class="alert alert-error"/>')
@@ -119,24 +95,20 @@ var Inbox = function () {
         var url = 'inbox_compose.html';
 
         loading.show();
-        content.html('');
         toggleButton(el);
 
         // load the form via ajax
-        $.ajax({
-            type: "GET",
-            cache: false,
-            url: url,
-            dataType: "html",
-            success: function(res) 
-            {
+        
                 toggleButton(el);
 
                 $('.inbox-nav > li.active').removeClass('active');
-                $('.inbox-header > h1').text('Compose');
+                $('.inbox-header > h1').text('Redactar');
 
                 loading.hide();
-                content.html(res);
+                content.hide();
+                contentView.hide();
+                contentReply.hide();
+                contentCompose.show();
 
                 initFileupload();
                 initWysihtml5();
@@ -144,52 +116,32 @@ var Inbox = function () {
                 $('.inbox-wysihtml5').focus();
                 Layout.fixContentHeight();
                 Metronic.initUniform();
-            },
-            error: function(xhr, ajaxOptions, thrownError)
-            {
-                toggleButton(el);
-            },
-            async: false
-        });
+           
     }
 
     var loadReply = function (el) {
         var url = 'inbox_reply.html';
 
         loading.show();
-        content.html('');
+        toggleButton(el);
         toggleButton(el);
 
-        // load the form via ajax
-        $.ajax({
-            type: "GET",
-            cache: false,
-            url: url,
-            dataType: "html",
-            success: function(res) 
-            {
-                toggleButton(el);
+        $('.inbox-nav > li.active').removeClass('active');
+        $('.inbox-header > h1').text('Responder');
 
-                $('.inbox-nav > li.active').removeClass('active');
-                $('.inbox-header > h1').text('Reply');
+        loading.hide();
+        content.hide();
+        contentView.hide();
+        contentReply.show();
+        contentCompose.hide();
+        $('[name="message"]').val($('#reply_email_content_body').html());
 
-                loading.hide();
-                content.html(res);
-                $('[name="message"]').val($('#reply_email_content_body').html());
+        handleCCInput(); // init "CC" input field
 
-                handleCCInput(); // init "CC" input field
-
-                initFileupload();
-                initWysihtml5();
-                Layout.fixContentHeight();
-                Metronic.initUniform();
-            },
-            error: function(xhr, ajaxOptions, thrownError)
-            {
-                toggleButton(el);
-            },
-            async: false
-        });
+        initFileupload();
+        initWysihtml5();
+        Layout.fixContentHeight();
+        Metronic.initUniform();
     }
 
     var loadSearchResults = function (el) {
@@ -322,6 +274,66 @@ var Inbox = function () {
                $('.inbox-nav > li.inbox > a').click();
             }
 
+        },
+        initChat: function () {
+
+            var cont = $('#chats');
+            var list = $('.chats', cont);
+            var form = $('.chat-form', cont);
+            var input = $('input', form);
+            var btn = $('.btn', form);
+
+            var handleClick = function (e) {
+                e.preventDefault();
+
+                var text = input.val();
+                if (text.length == 0) {
+                    return;
+                }
+
+                var time = new Date();
+                var time_str = time.toString('MMM dd, yyyy hh:mm:ss');
+                var tpl = '';
+                tpl += '<li class="out">';
+                tpl += '<img class="avatar" alt="" src="/admin/layout/img/avatar1.jpg"/>';
+                tpl += '<div class="message">';
+                tpl += '<span class="arrow"></span>';
+                tpl += '<a href="#" class="name">Bob Nilson</a>&nbsp;';
+                tpl += '<span class="datetime">at ' + time_str + '</span>';
+                tpl += '<span class="body">';
+                tpl += text;
+                tpl += '</span>';
+                tpl += '</div>';
+                tpl += '</li>';
+
+                var msg = list.append(tpl);
+                input.val("");
+                $('.scroller', cont).slimScroll({
+                    scrollTo: list.height()
+                });
+            }
+
+            /*
+            $('.scroller', cont).slimScroll({
+                scrollTo: list.height()
+            });
+            */
+
+            $('body').on('click', '.message .name', function (e) {
+                e.preventDefault(); // prevent click event
+
+                var name = $(this).text(); // get clicked user's full name
+                input.val('@' + name + ':'); // set it into the input field
+                Metronic.scrollTo(input); // scroll to input if needed
+            });
+
+            btn.click(handleClick);
+            input.keypress(function (e) {
+                if (e.which == 13) {
+                    handleClick();
+                    return false; //<---- Add this line
+                }
+            });
         }
 
     };

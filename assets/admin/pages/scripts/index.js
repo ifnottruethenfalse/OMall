@@ -308,7 +308,7 @@ var Index = function () {
                             var x = item.datapoint[0].toFixed(2),
                                 y = item.datapoint[1].toFixed(2);
 
-                            showChartTooltip(item.pageX, item.pageY, item.datapoint[0], item.datapoint[1] + ' visits');
+                            showChartTooltip(item.pageX, item.pageY, item.datapoint[0], item.datapoint[1] + ' visitas');
                         }
                     } else {
                         $("#tooltip").remove();
@@ -325,14 +325,14 @@ var Index = function () {
 
                 var data1 = [
                     ['DEC', 300],
-                    ['JAN', 600],
+                    ['ENE', 600],
                     ['FEB', 1100],
                     ['MAR', 1200],
-                    ['APR', 860], 
+                    ['ABR', 860], 
                     ['MAY', 1200],
                     ['JUN', 1450],
                     ['JUL', 1800],
-                    ['AUG', 1200],
+                    ['AGO', 1200],
                     ['SEP', 600],
                 ];      
            
@@ -412,7 +412,7 @@ var Index = function () {
                             $("#tooltip").remove();
                             var x = item.datapoint[0].toFixed(2),
                                 y = item.datapoint[1].toFixed(2);
-                            showChartTooltip(item.pageX, item.pageY, item.datapoint[0], item.datapoint[1] + 'M$');
+                            showChartTooltip(item.pageX, item.pageY, item.datapoint[0], item.datapoint[1] + 'Q');
                         }
                     }
                 });
@@ -549,7 +549,7 @@ var Index = function () {
                     startDate: moment().subtract('days', 29),
                     endDate: moment(),
                     minDate: '01/01/2012',
-                    maxDate: '12/31/2014',
+                    maxDate: '31/12/2014',
                     dateLimit: {
                         days: 60
                     },
@@ -559,30 +559,30 @@ var Index = function () {
                     timePickerIncrement: 1,
                     timePicker12Hour: true,
                     ranges: {
-                        'Today': [moment(), moment()],
-                        'Yesterday': [moment().subtract('days', 1), moment().subtract('days', 1)],
-                        'Last 7 Days': [moment().subtract('days', 6), moment()],
-                        'Last 30 Days': [moment().subtract('days', 29), moment()],
-                        'This Month': [moment().startOf('month'), moment().endOf('month')],
-                        'Last Month': [moment().subtract('month', 1).startOf('month'), moment().subtract('month', 1).endOf('month')]
+                        'Hoy': [moment(), moment()],
+                        'Ayer': [moment().subtract('days', 1), moment().subtract('days', 1)],
+                        'Ultimos 7 Dias': [moment().subtract('days', 6), moment()],
+                        'Ultimos 30 Dias': [moment().subtract('days', 29), moment()],
+                        'Este Mes': [moment().startOf('month'), moment().endOf('month')],
+                        'Ultimo Mes': [moment().subtract('month', 1).startOf('month'), moment().subtract('month', 1).endOf('month')]
                     },
                     buttonClasses: ['btn btn-sm'],
                     applyClass: ' blue',
                     cancelClass: 'default',
-                    format: 'MM/DD/YYYY',
-                    separator: ' to ',
+                    format: 'DD/MM/YYYY',
+                    separator: ' a ',
                     locale: {
-                        applyLabel: 'Apply',
-                        fromLabel: 'From',
-                        toLabel: 'To',
-                        customRangeLabel: 'Custom Range',
-                        daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-                        monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                        applyLabel: 'Applicar',
+                        fromLabel: 'De',
+                        toLabel: 'A',
+                        customRangeLabel: 'Rango',
+                        daysOfWeek: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
+                        monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
                         firstDay: 1
                     }
                 },
                 function (start, end) {
-                    console.log("Callback has been called!");
+                    console.log("Callback!");
                     $('#dashboard-report-range span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
                 }
             );
@@ -602,9 +602,9 @@ var Index = function () {
             setTimeout(function () {
                 var unique_id = $.gritter.add({
                     // (string | mandatory) the heading of the notification
-                    title: 'Meet Metronic!',
+                    title: 'OMall!',
                     // (string | mandatory) the text inside the notification
-                    text: 'Metronic is a brand new Responsive Admin Dashboard Template you have always been looking for!',
+                    text: 'ECommerce',
                     // (string | optional) the image to display on the left
                     image: './assets/img/avatar1.jpg',
                     // (bool | optional) if you want it to fade out on its own or just sit there

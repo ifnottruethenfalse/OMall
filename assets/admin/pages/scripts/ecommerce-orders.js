@@ -44,10 +44,6 @@ var EcommerceOrders = function () {
                     }
                     grid.getDataTable().fnDraw();
                     grid.clearAjaxParams();
-                } else if (action.val() == "") {
-                    Metronic.alert({type: 'danger', icon: 'warning', message: 'Please select an action', container: grid.getTableWrapper(), place: 'prepend'});
-                } else if (grid.getSelectedRowsCount() === 0) {
-                    Metronic.alert({type: 'danger', icon: 'warning', message: 'No record selected', container: grid.getTableWrapper(), place: 'prepend'});
                 }
             });
 
