@@ -146,8 +146,8 @@ var EcommerceProductsEdit = function () {
             initComponents();
 
             handleImages();
-            handleReviews();
-            handleHistory();
+            //handleReviews();
+            //handleHistory();
         }
 
     };

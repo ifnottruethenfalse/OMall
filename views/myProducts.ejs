@@ -42,9 +42,20 @@
 								</div>
 							</div>
 						</div>
-						<div class="portlet-body">
+						<div class="portlet-body" ng-controller="productController">
 							<div class="table-container">
-								<table class="table table-striped table-bordered table-hover" id="datatable_orders">
+								<div class="table-actions-wrapper">
+									<span>
+									</span>
+									<select class="table-group-action-input form-control input-inline input-small input-sm">
+										<option value="">Seleccionar...</option>
+										<option value="publish">Publicar</option>
+										<option value="unpublished">Despublicar</option>
+										<option value="delete">Eliminar</option>
+									</select>
+									<button class="btn btn-sm yellow table-group-action-submit"><i class="fa fa-check"></i> Aceptar</button>
+								</div>
+								<table class="table table-striped table-bordered table-hover">
 								<thead>
 								<tr role="row" class="heading">
 									<th width="5%">
@@ -63,7 +74,7 @@
 										 Precio
 									</th>
 									<th width="10%">
-										 Cantidad
+										 Tipo De Impuesto
 									</th>
 									<th width="15%">
 										 Fecha de Creacion
@@ -71,12 +82,14 @@
 									<th width="15%">
 										 Estado
 									</th>
+									<th width="15%">
+									</th>
 								</tr>
-								<tr role="row" class="filter">
+								<tr role="row" class="filter" ng-repeat="product in products">
 									<td>
 									</td>
 									<td>
-										{{ID.product}}
+										{{product.id}}
 									</td>
 									<td>
 										{{product.name}}
@@ -88,14 +101,16 @@
 										{{product.price}}
 									</td>
 									<td>
-										{{product.cantidad}}
+										{{product.impuesto}}
 									</td>
 									<td>
-										{{product.Createdate}}
-										{{product.Enddate}}
+										{{getDate(product.createdAt)}}
 									</td>
 									<td>
-										{{product.Estado}}
+										{{product.status}}
+									</td>
+									<td>
+										<a href="/product" class="btn btn-sm blue filter-cancel"><i class="fa fa-search"></i> Ver</a>
 									</td>
 								</tr>
 								</thead>

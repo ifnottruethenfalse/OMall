@@ -23,11 +23,18 @@ module.exports = {
    *    `/product/add`
    */
    add: function (req, res) {
+    var product = req.body;
+    console.log(req);
+    Product.create(product, function (err, product) {
+      if (err) {
+        console.log(err);
+      }
+      res.redirect("/myProducts");
+      
+    });
     
     // Send a JSON response
-    return res.json({
-      hello: 'world'
-    });
+    
   },
 
 
@@ -35,12 +42,14 @@ module.exports = {
    * Action blueprints:
    *    `/product/edit`
    */
-   edit: function (req, res) {
+   get: function (req, res) {
     
     // Send a JSON response
-    return res.json({
-      hello: 'world'
-    });
+    Product.find()
+      .exec(function(err, products) {
+        // Do stuff here
+        res.send(products);
+      });
   },
 
 

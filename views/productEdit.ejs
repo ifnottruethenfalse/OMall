@@ -28,9 +28,9 @@
 			<!-- /.modal -->
 			<!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
 			<!-- BEGIN PAGE CONTENT-->
-			<div class="row">
+			<div class="row" ng-controller="productController">
 				<div class="col-md-12">
-					<form class="form-horizontal form-row-seperated" action="#">
+					<form class="form-horizontal form-row-seperated" action="/product/save" method="post" name="productForm" novalidate>
 						<div class="portlet">
 							<div class="portlet-title">
 								<div class="caption">
@@ -39,8 +39,8 @@
 								<div class="actions btn-set">
 									<button type="button" name="back" class="btn default"><i class="fa fa-angle-left"></i> Regresar</button>
 									<button class="btn default"><i class="fa fa-reply"></i> Reiniciar</button>
-									<button class="btn green"><i class="fa fa-check"></i> Guardar</button>
-									<button class="btn green"><i class="fa fa-check-circle"></i> Guardar & Continuar Editando</button>
+									<button type="submit" class="btn green" ng-disabled="productForm.$invalid"><i class="fa fa-check"></i> Guardar</button>
+									<button type="submit" class="btn green" ng-disabled="productForm.$invalid"><i class="fa fa-check-circle"></i> Guardar & Continuar Editando</button>
 									<div class="btn-group">
 										<a class="btn yellow" href="#" data-toggle="dropdown">
 										<i class="fa fa-share"></i> Mas <i class="fa fa-angle-down"></i>
@@ -90,7 +90,7 @@
 													* </span>
 													</label>
 													<div class="col-md-10">
-														<input type="text" class="form-control" name="product[name]" placeholder="">
+														<input type="text" class="form-control" ng-model="name" name="name" placeholder="" required>
 													</div>
 												</div>
 												<div class="form-group">
@@ -98,7 +98,7 @@
 													* </span>
 													</label>
 													<div class="col-md-10">
-														<textarea class="form-control" name="product[description]"></textarea>
+														<textarea class="form-control" ng-model="description" name="description" required></textarea>
 													</div>
 												</div>
 												<div class="form-group">
@@ -106,7 +106,7 @@
 													* </span>
 													</label>
 													<div class="col-md-10">
-														<select class="table-group-action-input form-control input-medium" name="categoria">
+														<select class="table-group-action-input form-control input-medium" ng-model="categoria" name="categoria" required>
 															<option value="">Seleccionar...</option>
 															<option value="1">Libros</option>
 															<option value="2">Peliculas, Musica y juegos</option>
@@ -124,10 +124,10 @@
 													</label>
 													<div class="col-md-10">
 														<div class="input-group input-large date-picker input-daterange" data-date="10/11/2012" data-date-format="mm/dd/yyyy">
-															<input type="text" class="form-control" name="Createdate">
+															<input type="text" class="form-control" ng-model="Createdate" name="Createdate" required>
 															<span class="input-group-addon">
-															to </span>
-															<input type="text" class="form-control" name="Enddate">
+															A </span>
+															<input type="text" class="form-control" ng-model="Enddate" name="Enddate" required>
 														</div>
 														<span class="help-block">
 														Rango. </span>
@@ -138,7 +138,7 @@
 													* </span>
 													</label>
 													<div class="col-md-10">
-														<input type="text" class="form-control" name="product[price]" placeholder="">
+														<input type="text" class="form-control" ng-model="price" name="price" placeholder="" required>
 													</div>
 												</div>
 												<div class="form-group">
@@ -146,12 +146,12 @@
 													* </span>
 													</label>
 													<div class="col-md-10">
-														<select class="table-group-action-input form-control input-medium" name="impuesto">
+														<select class="table-group-action-input form-control input-medium" ng-model="impuest" name="impuesto" required>
 															<option value="">Seleccionar...</option>
-															<option value="1">Ninguno</option>
-															<option value="2">IVA</option>
-															<option value="3">Envio</option>
-															<option value="4">IVA + Envio</option>
+															<option value="Ninguno">Ninguno</option>
+															<option value="IVA">IVA</option>
+															<option value="Envio">Envio</option>
+															<option value="IVA + Envio">IVA + Envio</option>
 														</select>
 													</div>
 												</div>
@@ -160,10 +160,10 @@
 													* </span>
 													</label>
 													<div class="col-md-10">
-														<select class="table-group-action-input form-control input-medium" name="status">
+														<select class="table-group-action-input form-control input-medium" ng-model="status" name="status" required>
 															<option value="">Seleccionar...</option>
-															<option value="1">Publicado</option>
-															<option value="0">No Publicado</option>
+															<option value="Publicado">Publicado</option>
+															<option value="No Publicado">No Publicado</option>
 														</select>
 													</div>
 												</div>
@@ -210,24 +210,24 @@
 													</a>
 												</td>
 												<td>
-													<input type="text" class="form-control" name="product[images][1][label]" value="Imagen Thumbnail">
+													<input type="text" class="form-control" value="Imagen Thumbnail">
 												</td>
 												<td>
-													<input type="text" class="form-control" name="product[images][1][sort_order]" value="1">
+													<input type="text" class="form-control" value="1">
 												</td>
 												<td>
 													<label>
-													<input type="radio" name="product[images][1][image_type]" value="1">
+													<input type="radio"  value="1">
 													</label>
 												</td>
 												<td>
 													<label>
-													<input type="radio" name="product[images][1][image_type]" value="2">
+													<input type="radio"  value="2">
 													</label>
 												</td>
 												<td>
 													<label>
-													<input type="radio" name="product[images][1][image_type]" value="3" checked>
+													<input type="radio"  value="3" checked>
 													</label>
 												</td>
 												<td>
@@ -242,24 +242,24 @@
 													</a>
 												</td>
 												<td>
-													<input type="text" class="form-control" name="product[images][2][label]" value="Imagen #1">
+													<input type="text" class="form-control"  value="Imagen #1">
 												</td>
 												<td>
-													<input type="text" class="form-control" name="product[images][2][sort_order]" value="1">
+													<input type="text" class="form-control"  value="1">
 												</td>
 												<td>
 													<label>
-													<input type="radio" name="product[images][2][image_type]" value="1">
+													<input type="radio"  value="1">
 													</label>
 												</td>
 												<td>
 													<label>
-													<input type="radio" name="product[images][2][image_type]" value="2" checked>
+													<input type="radio"  value="2" checked>
 													</label>
 												</td>
 												<td>
 													<label>
-													<input type="radio" name="product[images][2][image_type]" value="3">
+													<input type="radio"  value="3">
 													</label>
 												</td>
 												<td>
@@ -274,24 +274,24 @@
 													</a>
 												</td>
 												<td>
-													<input type="text" class="form-control" name="product[images][3][label]" value="Imagen #2">
+													<input type="text" class="form-control" value="Imagen #2">
 												</td>
 												<td>
-													<input type="text" class="form-control" name="product[images][3][sort_order]" value="1">
+													<input type="text" class="form-control" value="1">
 												</td>
 												<td>
 													<label>
-													<input type="radio" name="product[images][3][image_type]" value="1" checked>
+													<input type="radio" value="1" checked>
 													</label>
 												</td>
 												<td>
 													<label>
-													<input type="radio" name="product[images][3][image_type]" value="2">
+													<input type="radio"  value="2">
 													</label>
 												</td>
 												<td>
 													<label>
-													<input type="radio" name="product[images][3][image_type]" value="3">
+													<input type="radio"  value="3">
 													</label>
 												</td>
 												<td>
@@ -325,24 +325,24 @@
 												</tr>
 												<tr role="row" class="filter">
 													<td>
-														<input type="text" class="form-control form-filter input-sm" name="product_review_no">
+														<input type="text" class="form-control form-filter input-sm" >
 													</td>
 													<td>
 														<div class="input-group date date-picker margin-bottom-5" data-date-format="dd/mm/yyyy">
-															<input type="text" class="form-control form-filter input-sm" readonly name="product_review_date_from" placeholder="">
+															<input type="text" class="form-control form-filter input-sm" readonly placeholder="">
 															<span class="input-group-btn">
 															<button class="btn btn-sm default" type="button"><i class="fa fa-calendar"></i></button>
 															</span>
 														</div>
 													</td>
 													<td>
-														<input type="text" class="form-control form-filter input-sm" name="product_review_customer">
+														<input type="text" class="form-control form-filter input-sm" >
 													</td>
 													<td>
-														<input type="text" class="form-control form-filter input-sm" name="product_review_content">
+														<input type="text" class="form-control form-filter input-sm">
 													</td>
 													<td>
-														<select name="product_review_status" class="form-control form-filter input-sm">
+														<select class="form-control form-filter input-sm">
 															<option value="">Select...</option>
 															<option value="pending">Pendiente</option>
 															<option value="approved">Aprovado</option>
@@ -401,7 +401,7 @@
 <script>
         jQuery(document).ready(function() {    
            Metronic.init(); // init metronic core components
-Layout.init(); // init current layout
+			Layout.init(); // init current layout
            EcommerceProductsEdit.init();
         });
     </script>
