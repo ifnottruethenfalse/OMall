@@ -33,10 +33,7 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': {
-    view: 'homepage'
-  },
-  '/login': {
-    view: 'login/login'
+    controller: 'UserController'
   },
   '/profile': {
     view: 'profile'
@@ -85,6 +82,19 @@ module.exports.routes = {
   },
   '/productEdit': {
     view: 'productEdit'
+  },
+  '/login': {
+    controller: 'AuthController',
+    action: 'login'
+  },
+
+  '/login/process': {
+      controller: 'AuthController',
+      action: 'process',
+  },
+  '/logout': {
+    controller: 'AuthController',
+    action: 'logout'
   }
 
   /***************************************************************************
