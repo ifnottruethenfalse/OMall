@@ -102,79 +102,20 @@
 													</div>
 												</div>
 												<div class="form-group">
-													<label class="col-md-2 control-label">Descripcion Pequeña: <span class="required">
-													* </span>
-													</label>
-													<div class="col-md-10">
-														<textarea class="form-control" name="product[short_description]"></textarea>
-														<span class="help-block">
-														para listado de productos </span>
-													</div>
-												</div>
-												<div class="form-group">
 													<label class="col-md-2 control-label">Categorias: <span class="required">
 													* </span>
 													</label>
 													<div class="col-md-10">
-														<div class="form-control height-auto">
-															<div class="scroller" style="height:275px;" data-always-visible="1">
-																<ul class="list-unstyled">
-																	<li>
-																		<label><input type="checkbox" name="product[categories][]" value="1">Mens</label>
-																		<ul class="list-unstyled">
-																			<li>
-																				<label><input type="checkbox" name="product[categories][]" value="1">Footwear</label>
-																			</li>
-																			<li>
-																				<label><input type="checkbox" name="product[categories][]" value="1">Clothing</label>
-																			</li>
-																			<li>
-																				<label><input type="checkbox" name="product[categories][]" value="1">Accessories</label>
-																			</li>
-																			<li>
-																				<label><input type="checkbox" name="product[categories][]" value="1">Fashion Outlet</label>
-																			</li>
-																		</ul>
-																	</li>
-																	<li>
-																		<label><input type="checkbox" name="product[categories][]" value="1">Football Shirts</label>
-																		<ul class="list-unstyled">
-																			<li>
-																				<label><input type="checkbox" name="product[categories][]" value="1">Premier League</label>
-																			</li>
-																			<li>
-																				<label><input type="checkbox" name="product[categories][]" value="1">Football League</label>
-																			</li>
-																			<li>
-																				<label><input type="checkbox" name="product[categories][]" value="1">Serie A</label>
-																			</li>
-																			<li>
-																				<label><input type="checkbox" name="product[categories][]" value="1">Bundesliga</label>
-																			</li>
-																		</ul>
-																	</li>
-																	<li>
-																		<label><input type="checkbox" name="product[categories][]" value="1">Brands</label>
-																		<ul class="list-unstyled">
-																			<li>
-																				<label><input type="checkbox" name="product[categories][]" value="1">Adidas</label>
-																			</li>
-																			<li>
-																				<label><input type="checkbox" name="product[categories][]" value="1">Nike</label>
-																			</li>
-																			<li>
-																				<label><input type="checkbox" name="product[categories][]" value="1">Airwalk</label>
-																			</li>
-																			<li>
-																				<label><input type="checkbox" name="product[categories][]" value="1">Kangol</label>
-																			</li>
-																		</ul>
-																	</li>
-																</ul>
-															</div>
-														</div>
-														<span class="help-block">
-														selecciona una o mas categorias </span>
+														<select class="table-group-action-input form-control input-medium" name="categoria">
+															<option value="">Seleccionar...</option>
+															<option value="1">Libros</option>
+															<option value="2">Peliculas, Musica y juegos</option>
+															<option value="3">Electronico y Computadoras</option>
+															<option value="4">Hogar, Jardin y Herramientas</option>
+															<option value="5">Juguetes</option>
+															<option value="6">Ropa</option>
+															<option value="7">Vehiculos</option>
+														</select>
 													</div>
 												</div>
 												<div class="form-group">
@@ -183,10 +124,10 @@
 													</label>
 													<div class="col-md-10">
 														<div class="input-group input-large date-picker input-daterange" data-date="10/11/2012" data-date-format="mm/dd/yyyy">
-															<input type="text" class="form-control" name="product[available_from]">
+															<input type="text" class="form-control" name="Createdate">
 															<span class="input-group-addon">
 															to </span>
-															<input type="text" class="form-control" name="product[available_to]">
+															<input type="text" class="form-control" name="Enddate">
 														</div>
 														<span class="help-block">
 														Rango. </span>
@@ -205,12 +146,12 @@
 													* </span>
 													</label>
 													<div class="col-md-10">
-														<select class="table-group-action-input form-control input-medium" name="product[tax_class]">
+														<select class="table-group-action-input form-control input-medium" name="impuesto">
 															<option value="">Seleccionar...</option>
 															<option value="1">Ninguno</option>
-															<option value="0">IVA</option>
-															<option value="0">Envio</option>
-															<option value="0">IVA + Envio</option>
+															<option value="2">IVA</option>
+															<option value="3">Envio</option>
+															<option value="4">IVA + Envio</option>
 														</select>
 													</div>
 												</div>
@@ -219,7 +160,7 @@
 													* </span>
 													</label>
 													<div class="col-md-10">
-														<select class="table-group-action-input form-control input-medium" name="product[status]">
+														<select class="table-group-action-input form-control input-medium" name="status">
 															<option value="">Seleccionar...</option>
 															<option value="1">Publicado</option>
 															<option value="0">No Publicado</option>
