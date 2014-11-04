@@ -74,9 +74,9 @@
 						<div class="col-md-9">
 							<div class="row">
 								<div class="col-md-8 profile-info">
-									<h1>Jimmy Morales</h1>
+									<h1>{{user.fullname}}</h1>
 									<p>
-										 Mi descripción...!
+										 {{user.description}}
 									</p>
 									<p>
 										<a href="#">
@@ -366,23 +366,23 @@
 									<form role="form" action="#">
 										<div class="form-group">
 											<label class="control-label">Nombre Completo</label>
-											<input type="text" placeholder="Jimmy" class="form-control"/>
+											<input type="text" ng-model="fullname" placeholder="user.fullname" class="form-control" name="fullname"/>
 										</div>
 										<div class="form-group">
 											<label class="control-label">Telefono</label>
-											<input type="text" placeholder="+1 646 580 DEMO (6284)" class="form-control"/>
+											<input type="text" placeholder="+1 646 580 DEMO (6284)" class="form-control" name="telefono"/>
 										</div>
 										<div class="form-group">
 											<label class="control-label">Intereses</label>
-											<input type="text" placeholder="Futbol" class="form-control"/>
+											<input type="text" placeholder="Futbol" class="form-control" name="interes"/>
 										</div>
 										<div class="form-group">
 											<label class="control-label">Ocupación</label>
-											<input type="text" placeholder="Ingeniero" class="form-control"/>
+											<input type="text" placeholder="Ingeniero" class="form-control" name="ocupacion"/>
 										</div>
 										<div class="form-group">
 											<label class="control-label">Descripción</label>
-											<textarea class="form-control" rows="3" placeholder="Mi descripcion...!"></textarea>
+											<textarea class="form-control" rows="3" placeholder="Mi descripcion...!" name="descripcion"></textarea>
 										</div>
 										<div class="form-group">
 											<label class="control-label">Pagina web</label>

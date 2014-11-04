@@ -1,16 +1,34 @@
 /*Script*/
 
-CREATE TABLE USUARIOS(
-	nit varchar,
-	username varchar,
-	password varchar,
-	nombre varchar,
-	ciudad varchar,
-	pais varchar,
-	correoelectronico varchar,
-	superuser boolean,
-	PRIMARY KEY(username)
+CREATE TABLE "user"
+(
+  username text,
+  email text,
+  fullname text,
+  address text,
+  city text,
+  country text,
+  id serial NOT NULL,
+  "createdAt" timestamp with time zone,
+  "updatedAt" timestamp with time zone,
+  PRIMARY KEY (id),
+  UNIQUE (username)
 );
+
+CREATE TABLE passport
+(
+  protocol text,
+  password text,
+  provider text,
+  identifier text,
+  tokens json,
+  "user" integer,
+  id serial NOT NULL,
+  "createdAt" timestamp with time zone,
+  "updatedAt" timestamp with time zone,
+  PRIMARY KEY (id)
+);
+
 CREATE TABLE Calendario(
 	username varchar,
 	fecha date,
@@ -68,4 +86,13 @@ CREATE TABLE Ordenes(
 	FOREIGN KEY(username1) REFERENCES USUARIOS
 	FOREIGN KEY(username2) REFERENCES USUARIOS
 	FOREIGN KEY(IDproducto) REFERENCES PRODUCTOS
+);
+
+CREATE TABLE posts(
+	id integer,
+	postDate varchar,
+	postTime varchar,
+	postContent varchar,
+	FOREIGN KEY(id) REFERENCES "user"(id)
+	ON DELETE CASCADE
 );

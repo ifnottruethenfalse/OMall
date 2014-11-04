@@ -10,36 +10,46 @@ omallApp.controller('userController',['$scope','$http',function($scope,$http){
   $http.get('/getUser').then(
         function (data) {
           console.log(data);
-          $scope.user = data;
+          $scope.user = data.data;
         },
         function (err) {
           console.log(err);
         });
-  
-  $scope.submit = function(error) {
-    if (error) {
-      $scope.submitted = true;
-      $scope.closed = false;
-    } else {
-      console.log("post")
-      var user = {
-        "username":$scope.username,
-        "password":$scope.password,
-        "remember":$scope.remember
-      }
-      $http.post('/login/process',user).then(
-        function (data) {
-          console.log(data);
-          if (data.data.message == "Email or Password are incorrect") {
-            $scope.submitted = false;
-            $scope.closed = false;
-            $scope.hasError = true; 
-          }
-        },
-        function (err) {
-          console.log(err);
-        });
-    }
+
+}]);
+
+omallApp.controller('postController',['$scope','$http',function($scope,$http){
+  $scope.posts = [];
+
+  var getPosts = function () {
+    $http.get('/getPosts').then(
+      function (data) {
+        console.log(data);
+        $scope.posts = data.data;
+      },
+      function (err) {
+        console.log(err);
+      });
   }
 
+  getPosts();
+
+  $scope.publish = function (content) {
+    $http.post('/publish',{content:content}).then(
+        function (data) {
+          console.log(data);
+          getPosts();
+        },
+        function (err) {
+          console.log(err);
+        });
+  }
+  $scope.getDate = function (post) {
+    var date = new Date(post.createdAt);
+    return date.toLocaleDateString();
+  }
+  $scope.getTime = function (post) {
+    var date = new Date(post.createdAt);
+    return date.toLocaleTimeString().substring(0,date.toLocaleTimeString().lastIndexOf(":"));
+  }
 }]);

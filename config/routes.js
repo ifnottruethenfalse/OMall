@@ -60,7 +60,10 @@ module.exports.routes = {
   '/order': 'UserController.order',
   '/productEdit': 'UserController.productEdit',
   '/lock': 'UserController.lock',
-  '/getUser':'UserController.getUser'
+  '/getUser':'UserController.getUser',
+  'get /getPosts' : 'PostController.get',
+  'post /publish' : 'PostController.add',
+  'post /create' : 'PostController.default'
 
   /***************************************************************************
   *                                                                          *

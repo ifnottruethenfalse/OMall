@@ -50,7 +50,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- DOC: Apply "page-footer-fixed" class to the body element to have fixed footer -->
 <!-- DOC: Apply "page-sidebar-reversed" class to put the sidebar on the right side -->
 <!-- DOC: Apply "page-full-width" class to the body element to have full width page without the sidebar menu -->
-<body class="page-header-fixed">
+<body class="page-header-fixed" ng-controller="userController">
 <!-- BEGIN HEADER -->
 <div class="page-header navbar navbar-fixed-top">
   <!-- BEGIN HEADER INNER -->
@@ -209,7 +209,7 @@ License: You must have a valid license purchased only from themeforest(the above
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
           <img alt="" class="img-circle" src="/global/img/default11.gif"/>
           <span class="username">
-          Jimmy </span>
+          {{user.fullname}} </span>
           <i class="fa fa-angle-down"></i>
           </a>
           <ul class="dropdown-menu">

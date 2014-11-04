@@ -22,18 +22,18 @@
 </div>
 <!-- /.modal -->
 <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-<div class="row">
+<div class="row" ng-controller="postController">
     <div class="col-md-9">
         <div class="row">
             <div class="col-md-12">
                 <form role="form" class="timeline-form">
                     <div class="form-body">
                         <div class="form-group">
-                            <textarea class="form-control" rows="3" placeholder="Que pasa?"></textarea>            
+                            <textarea ng-model="content" class="form-control" rows="3" placeholder="Que pasa?"></textarea>            
                         </div>
                     </div>
                     <div class="form-actions right">
-                        <button type="button" class="btn btn-primary">Publicar</button>
+                        <button type="button" class="btn btn-primary" ng-click="publish(content)" ng-disabled="!content">Publicar</button>
                     </div>
                 </form>
             </div>
@@ -41,99 +41,20 @@
         <div class="row">
             <div class="col-md-12">
               <ul class="timeline">
-                <li class="timeline-blue">
+                <li class="timeline-blue" ng-repeat="post in posts">
                   <div class="timeline-time">
                     <span class="date">
-                    4/10/14 </span>
+                    {{getDate(post)}} </span>
                     <span class="time">
-                    18:30 </span>
+                    {{getTime(post)}} </span>
                   </div>
                   <div class="timeline-icon">
-                    <img alt="" class="avatar-timeline img-circle" src="/admin/layout/img/avatar3.jpg"/>
+                    <img alt="" class="avatar-timeline img-circle" ng-src="{{post.image}}"/>
                   </div>
                   <div class="timeline-body">
-                    <h2>Jorge Gonzalez</h2>
+                    <h2>{{post.fullname}}</h2>
                     <div class="timeline-content">
-                      Ya casi terminal la U!!
-                    </div>
-                  </div>
-                </li>
-                <li class="timeline-blue">
-                  <div class="timeline-time">
-                    <span class="date">
-                    4/10/13 </span>
-                    <span class="time">
-                    15:04 </span>
-                  </div>
-                  <div class="timeline-icon">
-                    <img alt="" class="avatar-timeline img-circle" src="/admin/layout/img/avatar1.jpg"/>
-                  </div>
-                  <div class="timeline-body">
-                    <h2>Cristhian Morales</h2>
-                    <div class="timeline-content">
-                      Alguien sabe de alguien que venda un Play Station 3?
-                    </div>
-                  </div>
-                </li>
-                <li class="timeline-blue">
-                  <div class="timeline-time">
-                    <span class="date">
-                    4/10/13 </span>
-                    <span class="time">
-                    14:36 </span>
-                  </div>
-                  <div class="timeline-icon">
-                    <img alt="" class="avatar-timeline img-circle" src="/admin/layout/img/avatar2.jpg"/>
-                  </div>
-                  <div class="timeline-body">
-                    <h2>Lisa Wong</h2>
-                    <div class="timeline-content">
-                    Una curiosa ranita
-                    Iba por las vías del tren
-                    Patinaba con sus patitas
-                    Con glamoroso vaivén.
-
-                    Patinaba sin mayor trabajo
-                    Sin importarle otras cosas
-                    Cuando de un solo tajo 
-                    El tren le cortó las nalgas.
-
-                    Le lanzó cerca de un camino
-                    A una considerable distancia
-                    Mas sin medir el peligro
-                    Fue por sus nalgas con ansia.
-
-                    Cuando casi llegaba a la meta
-                    Ocurrió lo que mas temía
-                    Pasó el tren cual cometa
-                    Y la degolló a la pobrecita.
-
-                    Analizando lo que esto reza,
-                    Te pediré que esto no hagas:
-                    “nunca pierdas la cabeza,
-                    tan solo por unas...
-                    </div>
-                    <div class="timeline-footer">
-                        <a href="#" class="nav-link pull-right">
-                        Leer Mas <i class="m-icon-swapright m-icon-white"></i>
-                        </a>
-                    </div>
-                  </div>
-                </li>
-                <li class="timeline-blue">
-                  <div class="timeline-time">
-                    <span class="date">
-                    4/10/14 </span>
-                    <span class="time">
-                    18:30 </span>
-                  </div>
-                  <div class="timeline-icon">
-                    <img alt="" class="avatar-timeline img-circle" src="/admin/layout/img/avatar3.jpg"/>
-                  </div>
-                  <div class="timeline-body">
-                    <h2>Jorge Gonzalez</h2>
-                    <div class="timeline-content">
-                      Los peces son amigos!
+                      {{post.content}}
                     </div>
                   </div>
                 </li>

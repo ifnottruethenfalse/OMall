@@ -1,5 +1,5 @@
 <%- layout("layout_lock.ejs") %>
-<div class="page-lock">
+<div class="page-lock" ng-controller="userController">
 	<div class="page-logo">
 		<a class="brand" href="index.html">
 		<h1 style="margin:0px;margin-top: 7px;padding:0px;color:white;display:inline-block;font-family: 'Berlin Sans FB';">OM</h1><h1 style="margin:0px;padding:0px;color:rgb(255,63,63);display:inline-block;font-family: 'Berlin Sans FB';">all</h1>
@@ -8,9 +8,9 @@
 	<div class="page-body">
 		<img class="page-lock-img" src="/admin/pages/media/profile/profile.jpg" alt="">
 		<div class="page-lock-info">
-			<h1>Jimmy Morales</h1>
+			<h1>{{user.fullname}}</h1>
 			<span class="email">
-			jimmy@morales.com </span>
+			{{user.email}} </span>
 			<span class="locked">
 			Bloqueado </span>
 			<form class="form-inline" action="index.html">
