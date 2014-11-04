@@ -12,36 +12,33 @@
 </div>
 <!-- END SIDEBAR TOGGLER BUTTON -->
 <!-- BEGIN LOGIN -->
-<div class="content" ng-app="omallApp">
+<div class="content">
 	<!-- BEGIN LOGIN FORM -->
-	<form class="login-form" name="form" ng-submit="submit(form.username.$error.pattern || form.username.$error.required || form.password.$error.required)" ng-controller="logInController" novalidate>
+	<form class="login-form" action="/login" method="post">
 		<h3 class="form-title">Ingresa a tu cuenta</h3>
-		<div ng-show="submitted && !closed && (form.username.$error.pattern || form.username.$error.required || form.password.$error.required)" class="alert alert-danger alert-dismissible" role="alert">
-			<button type="button" ng-click="closed = true" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span></button>
-			Ingresa tu username y contraseña correcta.
+		<div class="alert alert-danger display-hide">
+			<button class="close" data-close="alert"></button>
+			<span>
+			Ingresa tu usuario y contraseña. </span>
 		</div>
-		<div ng-show="hasError" class="alert alert-danger alert-dismissible" role="alert">
-			<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span></button>
-			Username y Contraseña Invalida.
-		</div>
-		<div class="form-group" ng-class="{'has-error': submitted && !closed && (form.username.$error.pattern || form.username.$error.required)}">
+		<div class="form-group">
 			<!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
 			<label class="control-label visible-ie8 visible-ie9">Username</label>
 			<div class="input-icon">
 				<i class="fa fa-user"></i>
-				<input ng-model="username" class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Username" name="username" ng-trim ng-pattern="/^[a-zA-Z0-9_-]{3,20}$/" required/>
+				<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Username" name="username"/>
 			</div>
 		</div>
-		<div class="form-group" ng-class="{'has-error':submitted && !closed && form.password.$error.required}">
+		<div class="form-group">
 			<label class="control-label visible-ie8 visible-ie9">Contraseña</label>
 			<div class="input-icon">
 				<i class="fa fa-lock"></i>
-				<input ng-model="password" class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Contraseña" name="password" required/>
+				<input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Contraseña" name="password"/>
 			</div>
 		</div>
 		<div class="form-actions">
 			<label class="checkbox">
-			<input ng-model="remember" type="checkbox" name="remember" value="1"/> No cerrar sesión </label>
+			<input type="checkbox" name="remember" value="1"/> No cerrar sesión </label>
 			<button type="submit" class="btn blue pull-right">
 			Iniciar Sesión <i class="m-icon-swapright m-icon-white"></i>
 			</button>

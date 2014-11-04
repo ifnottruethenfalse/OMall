@@ -25,8 +25,7 @@ var EcommerceOrders = function () {
                         [20, 50, 100, 150, "All"] // change per page values here
                     ],
                     "iDisplayLength": 20, // default record count per page
-                    "bServerSide": true, // server side processing
-                    "sAjaxSource": "demo/ecommerce_orders.php", // ajax source
+                    "bServerSide": true, // ajax source
                     "aaSorting": [[ 1, "asc" ]] // set first column as a default sort by asc
                 }
             });
