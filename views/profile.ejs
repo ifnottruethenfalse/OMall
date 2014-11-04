@@ -79,21 +79,21 @@
 										 {{user.description}}
 									</p>
 									<p>
-										<a href="#">
-										www.mipaginaweb.com </a>
+										<a ng-href="{{user.web}}">
+										{{user.web}} </a>
 									</p>
 									<ul class="list-inline">
 										<li>
-											<i class="fa fa-map-marker"></i> Guatemala
+											<i class="fa fa-map-marker"></i> {{user.city}}
 										</li>
 										<li>
 											<i class="fa fa-calendar"></i> 26 Ago 1995
 										</li>
 										<li>
-											<i class="fa fa-briefcase"></i> Ingeniero
+											<i class="fa fa-briefcase"></i> {{user.ocupacion}}
 										</li>
 										<li>
-											<i class="fa fa-heart"></i> Futbol
+											<i class="fa fa-heart"></i> {{user.interes}}
 										</li>
 									</ul>
 								</div>
@@ -363,35 +363,35 @@
 						<div class="col-md-9">
 							<div class="tab-content">
 								<div id="tab_1-1" class="tab-pane active">
-									<form role="form" action="#">
+									<form role="form" action="/set" method="post">
 										<div class="form-group">
 											<label class="control-label">Nombre Completo</label>
-											<input type="text" ng-model="fullname" placeholder="user.fullname" class="form-control" name="fullname"/>
+											<input type="text" ng-model="fullname" placeholder="{{user.fullname}}" class="form-control" ng-model="user.fullname" name="fullname"/>
 										</div>
 										<div class="form-group">
 											<label class="control-label">Telefono</label>
-											<input type="text" placeholder="+1 646 580 DEMO (6284)" class="form-control" name="telefono"/>
+											<input type="text" placeholder="{{user.telefono}}" class="form-control" ng-model="user.telefono" name="telefono"/>
 										</div>
 										<div class="form-group">
 											<label class="control-label">Intereses</label>
-											<input type="text" placeholder="Futbol" class="form-control" name="interes"/>
+											<input type="text" placeholder="{{user.interes}}" class="form-control" ng-model="user.interes" name="interes"/>
 										</div>
 										<div class="form-group">
 											<label class="control-label">Ocupación</label>
-											<input type="text" placeholder="Ingeniero" class="form-control" name="ocupacion"/>
+											<input type="text" placeholder="{{user.ocupacion}}" class="form-control" ng-model="user.ocupacion" name="ocupacion"/>
 										</div>
 										<div class="form-group">
 											<label class="control-label">Descripción</label>
-											<textarea class="form-control" rows="3" placeholder="Mi descripcion...!" name="descripcion"></textarea>
+											<textarea class="form-control" rows="3" placeholder="{{user.descripcion}}" ng-model="user.descripcion" name="descripcion"></textarea>
 										</div>
 										<div class="form-group">
 											<label class="control-label">Pagina web</label>
-											<input type="text" placeholder="http://www.mipaginaweb.com" class="form-control"/>
+											<input type="text" placeholder="{{user.web}}" class="form-control" ng-model="user.web" name="web"/>
 										</div>
 										<div class="margiv-top-10">
-											<a href="#" class="btn green">
-											Guardar </a>
-											<a href="#" class="btn default">
+											<button type="submit" class="btn green">
+											Guardar </button>
+											<a href="/profile" class="btn default">
 											Cancelar </a>
 										</div>
 									</form>

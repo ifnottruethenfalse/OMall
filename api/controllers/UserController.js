@@ -24,6 +24,25 @@ module.exports = {
     return res.view('profile');
   },
 
+  /**
+   * `UserController.profile()`
+   */
+  set: function (req, res) {
+    console.log(req.body);
+    var user = {};
+    if (req.body.fullname) user.fullname = req.body.fullname;
+    if (req.body.telefono) user.telefono = req.body.telefono; 
+    if (req.body.interes) user.interes = req.body.interes;
+    if (req.body.ocupacion) user.ocupacion = req.body.ocupacion;
+    if (req.body.descripcion) user.descripcion = req.body.descripcion;
+    if (req.body.web) user.web = req.body.web;
+
+    User.update({id:req.user.id},user).exec(function (err, user) {
+      req.user = user;
+    });
+
+    return res.redirect('/profile');
+  },
 
   /**
    * `UserController.products()`
