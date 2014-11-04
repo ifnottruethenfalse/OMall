@@ -63,7 +63,8 @@ module.exports.routes = {
   '/getUser':'UserController.getUser',
   'get /getPosts' : 'PostController.get',
   'post /publish' : 'PostController.add',
-  'post /create' : 'PostController.default'
+  'post /create' : 'PostController.default',
+  'post /set' : 'UserController.set'
 
   /***************************************************************************
   *                                                                          *

@@ -9,7 +9,12 @@ var User = {
     fullname: {type: 'string'},
     address: {type: 'string'},
     city: {type: 'string'},
-    country: {type: 'string'}
+    country: {type: 'string'},
+    telefono: {type: 'string'},
+    interes: {type: 'string'},
+    ocupacion: {type: 'string'},
+    descripcion: {type: 'string'},
+    web: {type: 'string'}
   },
   connection: "somePostgresqlServer"
 };
