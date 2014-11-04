@@ -31,71 +31,36 @@ module.exports.routes = {
   * `assets` directory)                                                      *
   *                                                                          *
   ***************************************************************************/
+  'get /login': 'AuthController.login',
+  'get /logout': 'AuthController.logout',
+  'get /register': 'AuthController.register',
 
+  'post /auth/local': 'AuthController.callback',
+  'post /auth/local/:action': 'AuthController.callback',
+
+  'get /auth/:provider': 'AuthController.provider',
+  'get /auth/:provider/callback': 'AuthController.callback',
   '/': {
     controller: 'UserController'
   },
-  '/profile': {
-    view: 'profile'
-  },
-  '/products': {
-    view: 'products'
-  },
-  '/dashboard': {
-    view: 'dashboard'
-  },
-  '/orders': {
-    view: 'orders'
-  },
-  '/myproducts': {
-    view: 'myProducts'
-  },
-  '/wishlist': {
-    view: 'wishlist'
-  },
-  '/inbox': {
-    view: 'inbox'
-  },
-  '/friends': {
-    view: 'friends'
-  },
-  '/calendar': {
-    view: 'calendar'
-  },
-  '/portfolio': {
-    view: 'portfolio'
-  },
-  '/upgrade': {
-    view: 'upgrade'
-  },
-  '/aboutus': {
-    view: 'aboutus'
-  },
-  '/contact': {
-    view: 'contact'
-  },
-  '/product': {
-    view: 'product'
-  },
-  '/order': {
-    view: 'order'
-  },
-  '/productEdit': {
-    view: 'productEdit'
-  },
-  '/login': {
-    controller: 'AuthController',
-    action: 'login'
-  },
-
-  '/login/process': {
-      controller: 'AuthController',
-      action: 'process',
-  },
-  '/logout': {
-    controller: 'AuthController',
-    action: 'logout'
-  }
+  '/profile': 'UserController.profile',
+  '/products': 'UserController.products',
+  '/dashboard': 'UserController.dashboard',
+  '/orders': 'UserController.orders',
+  '/myproducts': 'UserController.myproducts',
+  '/wishlist': 'UserController.wishlist',
+  '/inbox': 'UserController.inbox',
+  '/friends': 'UserController.friends',
+  '/calendar': 'UserController.calendar',
+  '/portfolio': 'UserController.portfolio',
+  '/upgrade': 'UserController.upgrade',
+  '/aboutus': 'UserController.aboutus',
+  '/contact': 'UserController.contact',
+  '/product': 'UserController.product',
+  '/order': 'UserController.order',
+  '/productEdit': 'UserController.productEdit',
+  '/lock': 'UserController.lock',
+  '/getUser':'UserController.getUser'
 
   /***************************************************************************
   *                                                                          *

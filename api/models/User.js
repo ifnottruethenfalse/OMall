@@ -1,35 +1,17 @@
-var bcrypt = require('bcrypt-nodejs');
- 
-module.exports = {
- 
+var User = {
+  // Enforce model schema in the case of schemaless databases
+  schema: true,
+
   attributes: {
-    username: {
-      type: 'string',
-      required: true,
-      unique: true
-    },
-    password: {
-      type: 'string',
-      required: true
-    },
-    toJSON: function() {
-      var obj = this.toObject();
-      delete obj.password;
-      return obj;
-    }
+    username  : { type: 'string', unique: true },
+    email     : { type: 'string'},
+    passports : { collection: 'Passport', via: 'user' },
+    fullname: {type: 'string'},
+    address: {type: 'string'},
+    city: {type: 'string'},
+    country: {type: 'string'}
   },
- 
-  beforeCreate: function(user, next) {
-    bcrypt.genSalt(10, function(err, salt) {
-      bcrypt.hash(user.password, salt, function(err, hash) {
-        if (err) {
-          console.log(err);
-        }else{
-          user.password = hash;
-          next();
-        }
-      });
-    });
-  }
- 
+  connection: "somePostgresqlServer"
 };
+
+module.exports = User;

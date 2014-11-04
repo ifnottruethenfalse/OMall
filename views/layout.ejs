@@ -13,7 +13,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
-<html lang="en" class="no-js">
+<html lang="en" class="no-js" ng-app="omallApp">
 <!--<![endif]-->
 <!-- BEGIN HEAD -->
 <head>
@@ -218,11 +218,11 @@ License: You must have a valid license purchased only from themeforest(the above
               <i class="fa fa-user"></i> Mi Perfil </a>
             </li>
             <li>
-              <a href="page_calendar.html">
+              <a href="/calendar">
               <i class="fa fa-calendar"></i> My Calendario </a>
             </li>
             <li>
-              <a href="inbox.html">
+              <a href="/inbox">
               <i class="fa fa-envelope"></i> Inbox <span class="badge badge-danger">
               3 </span>
               </a>
@@ -230,11 +230,11 @@ License: You must have a valid license purchased only from themeforest(the above
             <li class="divider">
             </li>
             <li>
-              <a href="extra_lock.html">
+              <a href="/lock">
               <i class="fa fa-lock"></i> Bloquear </a>
             </li>
             <li>
-              <a href="login.html">
+              <a href="/logout">
               <i class="fa fa-key"></i> Cerrar Sesión </a>
             </li>
           </ul>
@@ -395,6 +395,8 @@ License: You must have a valid license purchased only from themeforest(the above
     </span>
   </div>
 </div>
+<script type="text/javascript" src="/bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="/js/angular/loginApp.js"></script>
 <!-- END FOOTER -->
 </body>
 <!-- END BODY -->

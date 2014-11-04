@@ -189,6 +189,31 @@ var Login = function () {
 	            messages: { // custom messages for radio buttons and checkboxes
 	                tnc: {
 	                    required: "Porfavor acepta TNC primero."
+	                },
+	                fullname: {
+	                    required: "Campo requerido."
+	                },
+	                email: {
+	                    required: "Campo requerido.",
+	                    email:"Porfavor Ingrese una cuenta de correo valida."
+	                },
+	                address: {
+	                    required: "Campo requerido."
+	                },
+	                city: {
+	                    required: "Campo requerido."
+	                },
+	                country: {
+	                    required: "Campo requerido."
+	                },
+	                username: {
+	                    required: "Campo requerido."
+	                },
+	                password: {
+	                    required: "Campo requerido."
+	                },
+	                rpassword: {
+	                	equalTo: "Ingrese el mismo valor nuevamente"
 	                }
 	            },
 

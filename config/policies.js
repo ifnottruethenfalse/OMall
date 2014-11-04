@@ -26,10 +26,7 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  'UserController': {
-    '*':  'isAuthenticated'
-
-  },
+  '*': [ 'passport' ]
   /***************************************************************************
   *                                                                          *
   * Here's an example of mapping some policies to run before a controller    *

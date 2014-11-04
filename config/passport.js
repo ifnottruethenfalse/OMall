@@ -14,39 +14,8 @@
  * http://passportjs.org/guide/providers/
  */
 
-var passport = require('passport'),
-LocalStrategy = require('passport-local').Strategy,
-bcrypt = require('bcrypt-nodejs');
-
-passport.serializeUser(function(user, done) {
-  done(null, user[0].id);
-});
-
-passport.deserializeUser(function(id, done) {
-  User.findOne({"_id":id}, function (err, user) {
-    done(err, user);
-  });
-});
-
-passport.use(new LocalStrategy(
-  function(username, password, done) {
-    User.findOne({"username":username}).done(function(err, user) {
-      if (err) { return done(null, err); }
-      if (!user || user.length < 1) { return done(null, false, { message: 'Incorrect User'}); }
-      bcrypt.compare(password, user.password, function(err, res) {
-        if (!res) return done(null, false, { message: 'Invalid Password'});
-        return done(null, user);
-      });
-    });
-  })
-);
-
-module.exports = {
-  http: {
-    customMiddleware: function(app){
-      console.log('Express midleware for passport');
-      app.use(passport.initialize());
-      app.use(passport.session());
-    }
+module.exports.passport = {
+  local: {
+    strategy: require('passport-local').Strategy
   }
 };
